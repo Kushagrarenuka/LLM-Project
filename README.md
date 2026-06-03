@@ -11,7 +11,7 @@ how grounded those answers are** in retrieved evidence.
 ## Overview
 
 Large language models answer from parametric memory, which makes them prone to
-**hallucination** — a serious problem for medical questions. RAG addresses this by
+**hallucination** a serious problem for medical questions. RAG addresses this by
 retrieving real source documents and constraining the model to answer only from that
 evidence.
 
@@ -30,7 +30,7 @@ Evaluated on a held-out set of questions (baseline = same generator, no retrieve
 | Retrieval hit-rate@4 | — | **0.99** |
 
 Retrieval improved answer accuracy by **~11 points** over the baseline, with the correct
-source document retrieved for **~99%** of questions — confirming the gain comes from
+source document retrieved for **~99%** of questions confirming the gain comes from
 retrieval rather than the model alone.
 
 ## Architecture
