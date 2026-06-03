@@ -4,7 +4,8 @@ emoji: 🩺
 colorFrom: blue
 colorTo: green
 sdk: gradio
-sdk_version: 4.44.0
+sdk_version: 5.9.1
+python_version: "3.11"
 app_file: app.py
 pinned: false
 license: mit
@@ -23,4 +24,7 @@ a grounded answer plus the evidence it used.
 
 > Answers are model-generated for demonstration only and are **not** medical advice.
 
-**Author:** Kushagra Aggarwal — MS Data Science, Northeastern University
+**Author:** Kushagra Aggarwal MS Data Science, Northeastern University
+
+# For Demo
+Click here: https://huggingface.co/spaces/kushagra1707/medical-rag

@@ -39,9 +39,7 @@ YESNOMAYBE_INSTR = (
 
 print(f"[startup] device = {DEVICE}")
 
-# ----------------------------------------------------------------------------
-# Data + index (built once, then cached to disk)
-# ----------------------------------------------------------------------------
+# Data + index
 def chunk_text(text, chunk_size=80, overlap=20):
     words = text.split()
     if len(words) <= chunk_size:
@@ -109,9 +107,8 @@ else:
 
 print(f"[startup] index ready: {index.ntotal} vectors over {len(corpus_chunks)} chunks")
 
-# ----------------------------------------------------------------------------
 # Generator
-# ----------------------------------------------------------------------------
+
 print("[startup] loading generator ...")
 gen_tok = AutoTokenizer.from_pretrained(GEN_MODEL)
 gen_model = AutoModelForSeq2SeqLM.from_pretrained(GEN_MODEL).to(DEVICE)
@@ -139,9 +136,8 @@ def rag_answer(question, k=4):
     return generate(question, context), hits
 
 
-# ----------------------------------------------------------------------------
 # Gradio UI
-# ----------------------------------------------------------------------------
+
 def demo_fn(question, k):
     if not question or not question.strip():
         return "Please enter a question.", ""
@@ -162,7 +158,7 @@ with gr.Blocks(title="Medical RAG QA") as demo:
     gr.Markdown(
         "# Medical RAG Question Answering\n"
         "Retrieval-Augmented Generation over **1,000 PubMed abstracts**. "
-        "Ask a biomedical yes/no/maybe question — the system retrieves supporting "
+        "Ask a biomedical yes/no/maybe question the system retrieves supporting "
         "evidence with FAISS and generates a grounded answer.\n\n"
         "*Built with sentence-transformers + FAISS + flan-t5-base. "
         "Answers are model-generated and not medical advice.*"
